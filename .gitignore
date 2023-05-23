@@ -1,0 +1,11 @@
+node_modules/
+.idea
+.DS_Store
+npm-debug.log
+npm-debug.log.*
+
+server/api/easy.js
+
+static/output
+
+client/dist
