@@ -9,6 +9,7 @@ const { DefinePlugin } = require('webpack')
 
 // console.log(path.dirname(__dirname));
 // console.log(path.resolve(__dirname, '../../node_modules'));
+console.log(path.resolve(path.dirname(__dirname),'src/util'));
 module.exports = {
     entry: path.resolve(__dirname, '../src/main.js'),//入口文件
     output: {// 出口目录及文件
@@ -16,7 +17,7 @@ module.exports = {
         filename: '[name].[contenthash].js'
     },
     resolve: {
-        extensions: ['.js', '.vue', '.jsx', '.json'], // 省略文件后缀
+        extensions: ['.ts', '.js', '.vue', '.jsx', '.json'], // 省略文件后缀
         alias: {
             // 配置别名
             '@': path.resolve(path.dirname(__dirname), 'src'),
@@ -35,10 +36,16 @@ module.exports = {
         'vue': 'Vue',
         'vue-router': 'VueRouter',
         'vuex': 'Vuex',
-        'axios': 'axios'
+        'axios': 'axios',
+        'element-plus': 'ElementPlus'
     },
     module: {
         rules: [
+            {
+                test: /\.vue$/,
+                loader: 'vue-loader',
+                include: [path.resolve(__dirname, '../src')]
+            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -49,6 +56,20 @@ module.exports = {
                 //         presets: ['@babel/preset-env'],
                 //     },
                 // },
+            },
+            {
+                test: /\.(ts|tsx)$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'ts-loader',
+                        options: {
+                            configFile: path.resolve(__dirname, '../../tsconfig.json'),
+                            appendTsSuffixTo: [/\.vue$/],
+                            transpileOnly: true
+                        }
+                    }
+                ]
             },
             {
                 test: /\.(png|jpe?g|gif|svg)$/i,
@@ -69,11 +90,6 @@ module.exports = {
                     // 输出文件位置以及文件名
                     filename: 'assets/fonts/[hash:8].[name][ext]'
                 }
-            },
-            {
-                test: /\.vue$/,
-                loader: 'vue-loader',
-                include: [path.resolve(__dirname, '../src')]
             }
         ],
     },

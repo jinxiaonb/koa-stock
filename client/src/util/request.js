@@ -12,7 +12,7 @@ export default function request(options) {
             withCredentials: true // 是否允许带cookie
         });
 
-        //
+        // 拦截器
         service.interceptors.request.use(
             async (config) => {
                 switch (config.method) {

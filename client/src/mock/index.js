@@ -26,6 +26,7 @@ module.exports = function (middlewares, devServer) {
     devServer.app.get('/mock/test', (_, res) => {
         res.send({
             code: '1',
+            status: '200',
             msg: 'mock 成功'
         });
         // res['json'](Mock.mock(require('../json/userInfo.json')));

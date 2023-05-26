@@ -1,0 +1,28 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "lib": ["es6", "dom", "es2017"],
+    "sourceMap": true,
+    // "rootDir": "./",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true,
+    "allowJs": true,
+    "baseUrl": ".",
+    "paths": {
+      "@router/*": ["client/src/router/*"],
+      "@store/*": ["client/src/store/*"],
+      "@util/*": ["client/src/util/*"]
+    }
+  },
+  "include": [
+    "client/src/**/*.ts",
+    "client/src/**/*.tsx",
+    "client/src/**/*.vue"
+  ],
+  "exclude": ["node_modules", "dist"]
+}

@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "baseUrl": ".",
+    "paths": {
+      "@util/*": ["client/src/util/*"],
+      "@router/*": ["client/src/router/*"],
+      "@store/*": ["client/src/store/*"],
+    }
+  }
+}
