@@ -32,6 +32,13 @@ module.exports = merge(base, {
         clean: true,//清楚目录
     },
 
+    externals: {//打包不包括的库
+        'vue': 'Vue',
+        'vue-router': 'VueRouter',
+        'vuex': 'Vuex',
+        'axios': 'axios',
+        'element-plus': 'ElementPlus'
+    },
     module: {
         rules: [
             {

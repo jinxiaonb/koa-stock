@@ -1,4 +1,5 @@
 import '@scss/index.scss';
+import 'normalize.css'
 
 
 import { createApp } from 'vue';

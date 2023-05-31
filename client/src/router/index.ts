@@ -5,18 +5,24 @@ const routerHistory = createWebHashHistory();
 const routes = [
     {
         path: '/',
-        redirect: '/home',
-        component: () => import('@comp/Home.vue'),
+        redirect: '/login',
+        component: () => import('@comp/login/LoginIn.vue'),
         children: [
             {
-                path: "/home",
-                name: "home",
-                component: () => import('@comp/Home.vue'),
+                path: "/login",
+                name: "login",
+                component: () => import('@comp/login/LoginIn.vue'),
                 meta: {
                     keepAlive: false
                 }
             }
         ]
+
+    },
+    {
+        path: '/home',
+        name: 'home',
+        component: () => import('@comp/Home.vue')
 
     },
     {

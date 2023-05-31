@@ -11,7 +11,7 @@ const { DefinePlugin } = require('webpack')
 // console.log(path.resolve(__dirname, '../../node_modules'));
 console.log(path.resolve(path.dirname(__dirname),'src/util'));
 module.exports = {
-    entry: path.resolve(__dirname, '../src/main.js'),//入口文件
+    entry: path.resolve(__dirname, '../src/main.ts'),//入口文件
     output: {// 出口目录及文件
         path: path.join(__dirname, '../dist'),
         filename: '[name].[contenthash].js'
@@ -31,13 +31,6 @@ module.exports = {
             '@views': path.resolve(path.dirname(__dirname), 'src/views'),// 存放html文件
             '@comp': path.resolve(path.dirname(__dirname), 'src/components'),// 存放组件文件
         },
-    },
-    externals: {//打包不包括的库
-        'vue': 'Vue',
-        'vue-router': 'VueRouter',
-        'vuex': 'Vuex',
-        'axios': 'axios',
-        'element-plus': 'ElementPlus'
     },
     module: {
         rules: [
